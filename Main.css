@@ -1,0 +1,161 @@
+@charset "utf-8";
+@font-face {
+  font-family: STXiheis;
+  src: url(Pics/stxihei.ttf);
+}
+
+body, html{
+    height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: STXiheis;
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+h1, h2, p{
+	margin: 0;
+}
+
+h1{
+	font-size: 8vw;
+	padding-left: 6vw;
+	padding-top: 2.5vw;
+}
+
+h2{
+	font-size: 5vw;
+	padding-left: 6vw;
+	padding-top: 2.5vw;
+}
+
+h3{
+	font-size: 5vh;
+	display:contents;
+}
+
+.page{
+	height: 25%;
+}
+
+.tobeScroll{
+	height: 400%;
+	padding: 0;
+	position: relative;
+}
+
+.statique{
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%)
+}
+
+.horizontalScroll{
+	position:fixed;
+	display:block;
+	top:0;
+	left:0;
+	width:100vh;
+	max-height:100vw;
+	min-height:100vw;
+	margin:0;
+	overflow-y:auto;
+	overflow-x:hidden;
+	transform:rotate(-90deg) translateY(-100vh);
+	transform-origin:right top;
+}
+
+.gal{
+	transform-origin: left top;
+	margin-bottom: -44vh;
+	transform:rotate(90deg) translateY(-100vh);
+	width: 56vh;
+	height: 100vh;
+}
+
+.paintShadow{
+	background-color:rgba(67,67,67,0.3);
+	transform:translateY(21.5vh) translateX(9.5vh);
+	width: 40vh;
+	height: 40vh;
+}
+
+.paintShadow div{
+	background-color:#FFFFFF;
+	transform:translateY(-1.5vh) translateX(-1.5vh);
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.paintShadow img{
+	transform: translateY(2.5%);
+	max-width: 95%;
+	max-height: 95%;	
+}
+
+.horizontalScroll h1{
+	font-size: 3vh;
+	padding-top: 24vh;
+	padding-left: 7vh;
+	padding-right: 7vh;
+	padding-bottom: 1vh;
+}
+
+.horizontalScroll p{
+	font: Calibri;
+	font-size: 2vh;
+	padding-top: 0vh;
+	padding-left: 7.5vh;
+	padding-right: 6.5vh;
+	padding-bottom: 1vh;
+}
+
+.scaleFit{
+	max-height: 75%;
+	max-width: 75%;
+	margin: 12.5%;
+}
+
+.scrollAble{
+	margin:0;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+
+.withText{
+	max-width: 100%;
+	margin: 2vh;
+	position: relative;
+}
+
+.withText b{
+	height: auto;
+	position: relative;
+	font-family: calibri;
+	font-size: 3.4vh;
+	padding-bottom: 1vh;
+	font-weight: bold;
+	display:inline-flex;
+}
+
+.withText p{
+	position: relative;
+	font-family: calibri;
+	font-size: 2.7vh;
+	margin-left: 1vh;
+	margin-bottom: 2vh;
+	display:inline-flex;
+}
+
