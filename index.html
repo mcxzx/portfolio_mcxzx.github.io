@@ -1,0 +1,513 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Zhihao's Portfolio Site</title>
+    	<link href="Main.css" rel="stylesheet" type="text/css">
+	</head>
+	
+	<body id="home" onResize="globalresize()" class="container::-webkit-scrollbar">
+		
+		<div id="top" class="tobeScroll" style="background-color:transparent; z-index: 3">
+			<div id="pg0t" class="page" style="background-color:transparent;">
+				<h1 style="color:#01110E">Zhihao's<br>Portfolio</h1>
+				<div style="position:absolute; transform: translate(8vw,8vw); width: 40%; height: 20vh">
+					<h3 style="color:#01110E; font-weight: bold; font-size: 2vw; display: flex">The website of a trivial "artist"</h3>
+					<h3 style="color:#01110E; font-weight: normal; font-size: 1.4vw; display: flex; transform: translateY(-1.5vw)">who trys to perceive the world as dots and arrows</h3>
+					<h3 style="color:#01110E; font-weight: normal; font-size: 1.4vw; display: flex; transform: translateY(-3vw)"> —— and "higher" arrows</h3>
+				</div>
+			</div>
+			<div id="pg1t" class="page" style="">
+				<h2 style="color:#FBECB3">Project Gallery</h2>
+				<h3 id="hint0" style="color:#FBECB3; font-weight: normal; font-size: 1.4vw; display: flex; transform: translate(8vw,3vw);">Click the page to enter</h3>
+			</div>
+			<div id="pg2t" class="page" style="">
+				<h2 style="color:#FBECB3">Portfolio Design</h2>
+				<h3 id="hint1" style="color:#FBECB3; font-weight: normal; font-size: 1.4vw; display: flex; transform: translate(8vw,1.5vw);">Click the page to view</h3>
+			</div>
+			<div id="pg3t" class="page" style="">
+				<h2 style="color:#FFFFFF">Music & Other Stuff</h2>
+				<div class="scrollAble" style="width:40vw; height:75vh; position: absolute; bottom: 0; left:0; transform: translate(8vw,0vh); color: #FFFFFF">
+				<div class="withText">
+					<p>The music that is played with the translucent-red block at the bottom left corner of the screen is the Mozart's 20th Piano Concerto. It has total three movements and roughly 30 minutes of run time. At here, it starts from the second movement and loops through the piece.</p>
+					<p>This piano concerto is first of the only two piano concertos written in a minor key by the composer. The other one is his 24th piano concerto, which is very famous of its third movement having a contagious excitement. Ludwig van Beethoven had expressed his appreciation of this piece and had wrote a Cadenze for it.</p>
+					<p>This version was played by French pianist Robert Casadesus, George Szell(Conductor) with Cleveland Orchestra on 10 Novembre, 1956. The performer took an unusal approch to the middle part of the second movement using a more serious tempo, resulting in a more alertive feeling. The record has an appearant sense of age, which is equitable considering this is from more than 60 years ago. I also recommend the interpretations of Friedrich Gulda with Claudio Abbado, and the version with Maria João Pires, where they have taken a more gradual tempo.</p>
+				</div>
+			</div>
+			</div>
+			
+		</div>
+     	
+		
+		<canvas id="board" class="statique" style="z-index: 2"></canvas>
+		
+		<div id="bottom" class="tobeScroll" style="background-color:black; z-index: auto; transform: translate(0%,-100%)">
+			<div id="pg0b" class="page" style="background-color:#05433940">
+				
+			</div>
+			<div id="pg1b" class="page" style="background-color:#42050530">
+				
+			</div>
+			<div id="pg2b" class="page" style="background-color:#42053530">
+				
+			</div>
+			<div id="pg3b" class="page" style="background-color:#111111">
+				
+			</div>
+			
+		</div>
+		<div id="jumppanel" style="position:fixed; z-index:4; height:200px; width:200px; bottom:15%; right:60px; transform:translate(0%,0%)">
+			<div id="l0" style="height:50px"></div>
+			<div id="l1" style="height:50px"></div>
+			<div id="l2" style="height:50px"></div>
+			<div id="l3" style="height:50px"></div>
+		</div>
+		<!Art Gallery>
+		<div id="gallery" class="statique" style="z-index:5; display:none">
+			<div id="galleryScroll" class="horizontalScroll" style="z-index: 5">
+				<div id="margin" style="height:10vh"></div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_00.png"></div></div>
+					<h1>Frustrating Object No.1</h1>
+					<p>A face-to-earth bed</p>
+					<p>How to create a thing that makes insomnia the world's smallest violin? The answer is in this work.</p>
+				</div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_01.png"></div></div>
+					<h1>Frustrating Object No.2</h1>
+					<p>The one who create this has to be in his late period of topology syndrome</p>
+					<p>A joke was well established between mathematicians — topologists cannot distinguish coffee mugs and donuts as they have the same topology. Well, one doesn't need to ate a mug as donut to feel power topological equivalences.</p>
+				</div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_02.png"></div></div>
+					<h1>Frustrating Object No.3</h1>
+					<p>Let's rollin' - on your keyboard</p>
+					<p>How to create a thing that makes insomnia the world's smallest violin? The answer is in this work.</p>
+				</div>
+				<div style="height:10vh"></div>
+			</div>
+			<div id="galleryLeft" style="height:20vh; width:10vh; margin-top:40vh; z-index: 6; position:absolute"><img src="Pics/arrow.png" class="scaleFit"></div>
+			<div id="galleryRight" style="height:20vh; width:10vh; margin-top:40vh; margin-left:100vw; z-index: 6; position: absolute; transform:translateX(-10vh)"><img src="Pics/arrow.png" class="scaleFit" style="transform-origin: center; transform: rotate(180deg)"></div>
+			<div id="back" style="position:absolute; z-index:6; padding:3vh"><h3> &#60 Back</h3></div>
+		</div>
+		<!Web Design>
+		<div id="web" class="statique" style="z-index: 6; background-color: rgba(166,104,105,0.1); display: none">
+			<div id="back2" style="position:absolute; z-index:6; padding:2.8vh; width:100%"><h3 style="font-size:3.3vh"> &#60 Back</h3></div>
+			<div style="z-index: 6; height:18vh; width:177vh; position:absolute; transform: translateY(11vh)"><h2 style="font-size: 12vh; padding-left: 11.8vh; padding-top: 2vh; font:bold STXiheis; color:rgba(32,26,32,1.00)">The Design</h2></div>
+			<div id="webpic" style="z-index: 6; position: absolute; width: 88.8vh; height: 73vh; bottom: -5vh; left: 92.5vh" class="scrollAble"><img src="Pics/wireframe.png" style="max-width: 100%"></div>
+			<div id="webtext" class="scrollAble" style="width:76vh; height:70vh; transform: translate(10vh,30vh)">
+				<div class="withText">
+					<b>Overview</b><br>
+					<p>The website, as one probably had already figured, has not taken the tranditional website approch. In fact, its code is completely hand-written by me during a consecutive 4 days, over 30 hours. I'm sort of glad it hasn't fall apart with so many features added into it.</p>
+					<p>The home page has split into four sections, with middle two as entrance to other pages. Layout was designed simple to avoid information overload, and is also comptible with multiple aspect ratios. The three movable quadrilaterals combine into appropriate shapes to balance the negative space the same time infuse some vitality into the website.</p>
+					<b>The Colouring</b><br>
+					<p>Have you noticed the gradient in the quadrilaterals' orange-yellow colour? It was inspired by the logo of the Berliner Philharmoniker, with its purity and contrast with the black negative space around it, inducing a strong modern feeling.</p>
+					<p>Gradient was not the only feature quadrilateral graphics possess. Their edge was smoothed out by a more darkened lucent, which provides them feeling of physical thickness instead of just being plain 2D shapes.</p>
+					<p>The negative space aren't also purely black. It was combined with a very light secondary colour, Therefore making them noticible that some are more red, some are more green-ish, and the page where it is more purply felt. These made the page transition less bland, and subconsciously made pages' vertical relation more apparent</p>
+					<b>Font</b><br>
+					<p>The font is majoritively STXihei, like one could see at most of titles, which is again used to imitate the sense of modern. Calibri is used for text paragraphs, as its appearance is very common, and also to avoid fatigue of having too much STXihei. It is also worth mentioning that the selecting buttons uses Corbel as its font, which is intended to distinguish it from other elements of the site.</p>
+					<b>Trivia</b><br>
+					<p>The gallery page in this site, despite being horizontally ordered, is scrollable. The horizontal scrollbar was implemented here by applying two rotations to a vertical scrollbar to achieve such functionaility</p>
+				</div>
+			</div>
+		</div>
+		
+		<!Music Player>
+		<div id="player" style="position:fixed; bottom: 0; left: -72vh; height: 8vh; width: 80vh; z-index: 8; background-color: rgba(255,0,4,0.19)">
+			<audio src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Mozart%3B_Concerto_No._20_in_D_Minor-_I._Allegro.ogg" preload="metadata" id="music0"></audio>
+			<audio src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Mozart%3B_Concerto_No._20_in_D_Minor-_II._Romanza.ogg" preload="metadata" id="music1"></audio>
+			<audio src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mozart%3B_Concerto_No._20_in_D_Minor-_III._Rondo-_Allegro_assai.ogg" preload="metadata" id="music2"></audio>
+		</div>
+		
+	</body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script>
+		var body = document.getElementById("home");
+		var canvas = document.getElementById("board");
+		var ctx = canvas.getContext("2d");
+		const color_graphic = [["#000000","#000000"],["#FAD016","#FDB310"], ["#F0B913","#F29E10"], ["#FA9214","#FD7310"]]//graphics colour [bright->dark]
+		const color_luster = [["#000000","#000000"],["#FDF443","#F1C732"], ["#DFB846","#E4B540"], ["#E8A945","#E29A46"]]//luster colour
+		const link_text = ["Home","Projects","Web Design","Other Stuff"]
+		const color_background = ["#054339", "#420505", "#420535", "#111111"]//background colour
+		var h = window.innerHeight; w = window.innerWidth, wa = window.innerHeight/9*16;
+		var pg = Math.round(window.scrollY/h), t = 0.0, animation_duration = 1, link = Math.round(window.scrollY/h), page_switch_to = 0, page_switch_t = 0.0, scroll_deviation = 5, nonmainbefore = false, requires_background = false, hint0 = true, hint1 = true;
+		const page_switch_time = 300;
+		//canvas.removeAttribute("hidden")
+		
+		function globalresize(){
+			h = window.innerHeight; w = window.innerWidth
+			//desired aspect ratio: 16:9
+			wa = h/9*16
+			
+			$('#board').attr("height",h);
+			$('#board').attr("width",w);
+			
+			page_position[0][3] = [linkgraphicpix([0,0]),linkgraphicpix([0,0.25]),linkgraphicpix([1,0.25]),linkgraphicpix([1,0])]
+			
+			if(pg==0){position[3] = [linkgraphicpix([0,0.25*link]),linkgraphicpix([0,0.25*(1+link)]),linkgraphicpix([1,0.25*(1+link)]),linkgraphicpix([1,0.25*link])]}
+			
+			reDraw();
+		}
+		
+		function linkstatepush(l){
+			if(link != l){
+				//var diff = (l>link?l-link:link-l)
+				link = l
+				//desired_position = objCopy(page_position[0])
+				//desired_position[3] = [linkgraphicpix([0,0.25*link]),linkgraphicpix([0,0.25*(1+link)]),linkgraphicpix([1,0.25*(1+link)]),linkgraphicpix([1,0.25*link])]
+				//action(desired_position,60*diff)
+				if(pg == 0 && page_switch_t <= 0 && t <= 0){
+					position[3] = [linkgraphicpix([0,0.25*link]),linkgraphicpix([0,0.25*(1+link)]),linkgraphicpix([1,0.25*(1+link)]),linkgraphicpix([1,0.25*link])]
+				}
+				reDraw();
+			}
+		}
+		
+		
+		
+		//window.history.pushState(<state|js object|the data of the page one wants to save>,"title","/url");
+		//URLSearchParams(document.location.search); <var> = params.get("<var>");
+		//window.location.replace("<name>.html"); //http redirect
+		//window.location.href = "<name>.html"; //clicking on a link
+		//const state = {'id':5}
+		//const url="theNewUrl.html"
+		//setTimeout('history.pushState(state,"quoi?","?what=nai")' or 'window.location.replace("theNewUrl.html")',1000)
+		
+		var speed = 600, playing = false, current_track = 1;
+		
+		///page segway
+		//$('html, body').hide();
+		$(document).ready(function() {
+			//link bar cliked
+			$('#l0').click(function() {
+				page_switch(0)
+			});
+			$('#l1').click(function() {
+				page_switch(1)
+			});
+			$('#l2').click(function() {
+				page_switch(2)
+			});
+			$('#l3').click(function() {
+				page_switch(3)
+			});
+			//left/right botton
+			$('#galleryLeft').click(function() {
+				$('#galleryScroll').animate({scrollTop: parseFloat($('#galleryScroll').scrollTop())-parseInt((w+h/5)/0.56/h)*0.56*h}, page_switch_time);
+			});
+			$('#galleryRight').click(function() {
+				$('#galleryScroll').animate({scrollTop: parseFloat($('#galleryScroll').scrollTop())+parseInt((w+h/5)/0.56/h)*0.56*h}, page_switch_time);
+			});
+			
+			//test part
+			$('#pg1t').click(function() {
+				page_switch(4);
+			});
+			$('#pg2t').click(function() {
+				page_switch(5);
+			});
+			$('#back').click(function() {
+				page_switch(1);
+			});
+			$('#back2').click(function() {
+				page_switch(2);
+			});
+			$('#player').click(function() {
+				if(!playing){
+					document.getElementById("music"+current_track).play()
+					playing = true;
+				}else{
+					document.getElementById("music"+current_track).pause()
+					playing = false;
+				}
+			});
+		});
+		//music track switch
+		for(var i=0;i<3;i++){
+			document.getElementById("music"+i).addEventListener("ended", function(){
+				console.log("The "+current_track+"th track has ended");
+				current_track = (current_track+1)%3;
+				document.getElementById("music"+current_track).play();
+			});
+		}
+		
+		//scroll
+				   
+		function page_switch(pgnum){
+			if(pg != pgnum){
+				if(pg < 4 && pgnum < 4){
+					page_switch_t = page_switch_time * 2
+					$('html, #home').animate({scrollTop: pgnum*h}, page_switch_time * 2);
+					if(hint0 && pgnum == 1){
+						hint0 = false;
+						setTimeout("$('#hint0').fadeIn(1000)",4000)
+						setTimeout("$('#hint0').fadeOut(1000)",7400)
+					}
+					if(hint1 && pgnum == 2){
+						hint1 = false;
+						setTimeout("$('#hint1').fadeIn(1000)",3000)
+						setTimeout("$('#hint1').fadeOut(1000)",6400)
+					}
+				}else if(pgnum == 4){
+					$('#top, #bottom, #jumppanel').fadeOut(speed);
+					setTimeout("$('#gallery').fadeIn(speed)",speed);
+					page_switch_t = speed*2
+				}else if(pgnum == 5){
+					$('#top, #bottom, #jumppanel').fadeOut(speed);
+					$('#webtext, #webpic').fadeOut(0)
+					setTimeout("$('#web').fadeIn(speed)",speed);
+					setTimeout("$('#webtext').fadeIn(speed)",2700);
+					setTimeout("$('#webpic').fadeIn(speed*2)",2200)
+					page_switch_t = speed*2
+				}else if(pg == 4){
+					nonmainbefore = true
+					$('#gallery').fadeOut(speed);
+					setTimeout("$('#top, #bottom, #jumppanel').fadeIn(speed); $('html, #home').scrollTop("+pgnum+"*h);",speed);
+					page_switch_t = speed*2
+				}else if(pg == 5){
+					nonmainbefore = true
+					requires_background = true;
+					$('#web').fadeOut(speed);
+					setTimeout("$('#top, #bottom, #jumppanel').fadeIn(speed); $('html, #home').scrollTop("+pgnum+"*h);",speed);
+					page_switch_t = speed*2
+				}
+				action(page_position[pgnum],2000)
+				pg = pgnum
+			}
+		}
+		
+		//hoverevent
+		$(document).ready(function(){
+			$(document).mousemove(function(){
+				if($('#l0:hover').length != 0){
+					linkstatepush(0)
+				}else if($('#l1:hover').length != 0){
+					linkstatepush(1)
+				}else if($('#l2:hover').length != 0){
+					linkstatepush(2)
+				}else if($('#l3:hover').length != 0){
+					linkstatepush(3)
+				}else{
+					linkstatepush(pg)
+					//$('#l1').css("background-color","green");
+					//$(".hint").text("Mouse is Outside the DIV Element.");
+				}
+			});
+		});
+		
+		//dynamic graphics coordinate
+		function topix(base,xy){
+			var ret = [base[0]*w, base[1]*h]
+			ret[0] += (xy[0] - base[0])*wa
+			ret[1] += (xy[1] - base[1])*h
+			return ret;
+		}
+		
+		function todec(base,xy){
+			var ret = [base[0]*w, base[1]*h]
+			ret[0] = (xy[0] - ret[0])/wa + base[0]
+			ret[1] = (xy[1] - ret[1])/h + base[1]
+			return ret;
+		}
+		
+		function linkpospix(xy){
+			var ret = [w-60 - 200,0.85*h - 200]
+			ret[0] += xy[0]*200
+			ret[1] += xy[1]*200
+			return todec([0.5,0.5],ret);
+		}
+		
+		function linkgraphicpix(ij){
+			return linkpospix(add(
+					1-ij[0], add( 1-ij[1], [.02,.02],   ij[1], [-.02,.98]),
+					ij[0],   add( 1-ij[1], [.8,-.02],   ij[1], [.9,1.02])
+			))
+		}
+		
+		function fade(x){
+			return 6*x*x*x*x*x - 15*x*x*x*x + 10*x*x*x;
+		}
+		
+		function dot(v,w){
+			var vw = 0;
+			for(var i in v) vw += v[i]*w[i]
+			return vw;
+		}
+		
+		function add(a,v,b,w){
+			if(typeof v == "object" && v != null){
+				var avbw = [];
+				for(var i in v) avbw[i] = add(a,v[i],  b,w[i])
+				return avbw;
+			}else{
+				return a*v + b*w
+			}
+		}
+		
+		function objCopy(from){
+			if(typeof from == "object" && from != null){
+				var ret = []
+				for(var i in from){
+					ret[i] = objCopy(from[i])
+				}
+				return ret
+			}else{
+				return from
+			}
+		}
+		
+		
+		//dynamic graphics
+		var position = [[0,0],[[0,0],[0,0],[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]]];
+		var initial_position = [[0,0],[[0,0],[0,0],[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]]];
+		var desired_position = [[0,0],[[0,0],[0,0],[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]],[[0,0],[0,0],[0,0],[0,0]]];
+		
+		const page_position = [
+			[[.5,.5],
+			 [[.45,.55],[.6,-.2],[-.2,-.2],[-.2,.7]],
+			 [[.45,.55],[-.2,.7],[-.2,1.2],[.6,1.2]],
+			 [linkgraphicpix([0,0]),linkgraphicpix([0,0.25]),linkgraphicpix([1,0.25]),linkgraphicpix([1,0])]
+			],
+			
+			[[0.45,1],
+			[[.68,.52],[.51,.6],[.38,.62],[.32,.55]],
+			[[.275,1],[.360,1],[.37,.63],[.31,.56]],
+			[[.53,.62],[.70,.54],[.75,1],[.531,1]]],
+			
+			[[0.35,1],
+			[[.47,.4],[.47,.4],[.47,1.3],[.27,1.2]],
+			[[.2,.4],[.4,.4],[.2,1.3],[.2,1.2]],
+			[[.26,.47],[.26,.638],[.45,.64],[.45,.472]]],
+			
+			[[0.5,0.5],
+			[[1.2,-.1],[1.2,-.3],[-.2,-.3],[-.2,-.1]],
+			[[-.2,-.2],[-.4,-.2],[-.4,1.2],[-.2,1.2]],
+			[[1.2,-.2],[1.4,-.2],[1.4,1.2],[1.2,1.2]]],
+			
+			[[0.5,0.5],
+			[[1.2,1],[1.2,0],[-.2,0],[-.2,1]],
+			[[1.2,.15],[1.2,-.1],[-.2,-.1],[-.2,.15]],
+			[[1.2,0.85],[1.2,1.1],[-.2,1.1],[-.2,0.85]]],
+			
+			[[0,0],
+			[[0.6,-.4],[0,0],[0,3.4],[0.6,3]],
+			[[.06,.1],[.06,.3],[.44,.3],[.44,.1]],
+			[[.5,.28],[.5,1.1],[1,1.1],[1,.28]]]
+		]
+		page_position[0][3] = [linkgraphicpix([0,0]),linkgraphicpix([0,0.25]),linkgraphicpix([1,0.25]),linkgraphicpix([1,0])]
+		
+		position = objCopy(page_position[pg])
+		var grd;
+		
+		function reDraw(){
+			ctx.globalCompositeOperation = "source-over"
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			
+			if(pg == 5||(pg < 4&&requires_background)){
+				ctx.globalAlpha = 1;
+				ctx.fillStyle = "#000000";
+				ctx.fillRect(0,0,canvas.width,canvas.height);
+				if(pg == 5 && page_switch_t > speed){
+					ctx.globalAlpha = 3/16*(page_switch_t/speed - 1) + (2 - page_switch_t/speed);
+				}else if(pg < 4&&requires_background && page_switch_t < speed){
+					ctx.globalAlpha = 3/16*(1 - page_switch_t/speed) + (page_switch_t/speed);
+				}
+				ctx.fillStyle = color_background[2];
+				ctx.fillRect(0,0,canvas.width,canvas.height);
+				if(page_switch_t <= 0){requires_background = false}
+			}
+			
+			for(var i=1;i<4;i++){//dark(c03) -> bright(c12)
+				ctx.beginPath();
+				grd = ctx.createLinearGradient(...topix(position[0],add(0.5,position[i][0],0.5,position[i][3])),  ...topix(position[0],add(0.5,position[i][1],0.5,position[i][2])))
+				
+				ctx.moveTo(...topix(position[0],position[i][0]))
+				ctx.lineTo(...topix(position[0],position[i][1]))
+				ctx.lineTo(...topix(position[0],position[i][2]))
+				ctx.lineTo(...topix(position[0],position[i][3]))
+				ctx.lineTo(...topix(position[0],position[i][0]))
+				//luster
+				grd.addColorStop(0,color_luster[i][0])
+				grd.addColorStop(1,color_luster[i][1])
+				ctx.strokeStyle = grd
+				ctx.lineWidth = 7
+				ctx.globalAlpha = 0.3
+				ctx.stroke();
+				
+				ctx.lineWidth = 3
+				ctx.globalAlpha = 0.8
+				ctx.stroke();
+				//inner fill
+				ctx.globalAlpha = 1
+				grd.addColorStop(0,color_graphic[i][0])
+				grd.addColorStop(1,color_graphic[i][1])
+				ctx.fillStyle = grd
+				ctx.fill();
+			}
+			
+			//text
+			if(pg >= 4 && page_switch_t > speed){
+				ctx.globalAlpha = page_switch_t/speed-1
+			}
+			if((pg < 4 &&!(nonmainbefore&&page_switch_t > speed))||(page_switch_t > speed && pg >= 4)){
+				if(nonmainbefore && pg < 4 && page_switch_t > 0 && page_switch_t <= speed){
+					ctx.globalAlpha = 1-page_switch_t/speed
+				}else if(nonmainbefore && page_switch_t <= 0){nonmainbefore = false}
+				ctx.fillStyle = "#FFFFFF"
+				if(pg != 5)
+				ctx.globalCompositeOperation = "xor"
+				for(var j in link_text){
+					if(link == j){
+						ctx.font = "bold 28px Corbel"
+					}else{
+						ctx.font = "27px Corbel"
+					}
+					ctx.fillText(link_text[j],...topix([0.5,0.5],linkgraphicpix([0.1-0.01*j,0.25*j+0.18])))
+				}
+			}
+		}
+		
+		ctx.font="30px Chivo";
+		
+		//animation
+		function action(final_position,duration){
+			initial_position = objCopy(position)
+			desired_position = objCopy(final_position)
+			animation_duration = duration
+			t = 1.0
+		}
+		
+		//also checks scroll
+		function animate_successor(){
+			setTimeout('animate_successor()',10)
+			if(t > 0){
+				t -= 10/animation_duration
+				position = add(fade(t),initial_position, 1-fade(t),desired_position)
+				reDraw()
+			}
+			if(page_switch_t > 0){
+				page_switch_t -= 10
+			}
+			if(pg < 4 && page_switch_t <= 0){
+				if(window.scrollY - pg*h > scroll_deviation){
+					page_switch(pg+1)
+				}else if(pg*h - window.scrollY > scroll_deviation){
+					page_switch(pg-1)
+				}
+			}
+			if(pg == 4 && page_switch_t > 0){
+				
+			}
+		}
+		
+		//debug
+		//pg = 5; position = objCopy(page_position[5])
+		//$('#web').fadeIn(0);$('#top').fadeOut(0);$('#bottom').fadeOut(0);
+		//debug end
+		
+		$('#hint0, #hint1').fadeOut(0);
+		globalresize();
+		animate_successor();
+		
+	</script>
+</html>
