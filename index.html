@@ -277,6 +277,7 @@
 		});
 		//music track switch
 		for(var i=0;i<3;i++){
+			document.getElementById("music"+i).volume = 0.5;
 			document.getElementById("music"+i).addEventListener("ended", function(){
 				console.log("The "+current_track+"th track has ended");
 				current_track = (current_track+1)%3;
