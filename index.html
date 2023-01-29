@@ -80,8 +80,59 @@
 				<div class="gal">
 					<div class="paintShadow"><div><img src="Pics/exhib_02.png"></div></div>
 					<h1>Frustrating Object No.3</h1>
-					<p>Let's rollin' - on your keyboard</p>
-					<p>How to create a thing that makes insomnia the world's smallest violin? The answer is in this work.</p>
+					<p>Let's rollin' - on the keyboard</p>
+					<p>This model was created similar to the previous one with model described by parameterized mathematical surfaces. But the 3D lift of the keys are detected by boundary operator acting on the orginal keyboard image.</p>
+				</div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_03.png"></div></div>
+					<h1>Frustrating Object No.4</h1>
+					<p>Hyperbolic textbook</p>
+					<p>By displace part of spine of the book, not only made the book lost its functionality, but one also obtaines a naturally hyperbolic shaped book. Although with the knowledge in this textbook, a topologist can already spot its difference.</p>
+				</div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_05.png"></div></div>
+					<h1>Frustrating Object No.4b</h1>
+					<p>Swelling book</p>
+					<p>Continuing modify the book spine, made a ballon like textbook feasible</p>
+				</div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_04.png"></div></div>
+					<h1>Frustrating Object No.5</h1>
+					<p>Rabbit's headphone</p>
+					<p>When I saw cartoon rabits with headphone, I would always curious how they actually hear the sound. Well, this is the perfect solution for them.</p>
+				</div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_06.png"></div></div>
+					<h1>Nodal Geometry</h1>
+					<p>The logo</p>
+					<p>"Node", "Vibration", this turns static algebraic surfaces almost alive. At least some of them.</p>
+				</div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_07.png"></div></div>
+					<h1>Homology "on" a Surface</h1>
+					<p>Logo brandmark</p>
+					<p>Putting initials of my name on a the septic surface with number of nodes being the known largest is a genuinely fun experience, especially with an extra implication. Probably a good place to start calculateing a Zariski homology.</p>
+				</div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_08.png"></div></div>
+					<h1>Category Theory and HoTT are the Epitome of Abstract Nonsense</h1>
+					<p>Logo drafts</p>
+					<p>Some ideas when coming up with a logo. Dots, arrows, types and the world are the same(Yes and no).</p>
+				</div>
+				<div class="gal">
+					<div class="paintShadow" style="height: 85vh; transform: translate(8vh,8vh); position:absolute"><div><img src="Pics/exhib_09.jpg"></div></div>
+				</div>
+				<div class="gal">
+					<div class="paintShadow"><div><img src="Pics/exhib_10.gif"></div></div>
+					<h1>Hopf Fibration</h1>
+					<p>Animation project</p>
+					<p>How can you put circles inside a 3-sphere with maximum symmetry(i.e. not able to distinguish each, no circle is special)? Hopf fibration shows that it is equivalent to maximum symmetric point sets on a 2-sphere. Here is a demonstration of vertices on a cube.</p>
+				</div>
+				<div class="gal" style="width: 88vh; margin-bottom: -12vh">
+					<div class="paintShadow" style="width: 72vh; transform: translate(8vh,21.5vh); position:relative"><div><img src="Pics/exhib_11.png"></div></div>
+					<h1>Splitting the World</h1>
+					<p>A Google Doodle</p>
+					<p>With polarization of media nowdays, lots of people are being subconsciously brought to more extreme side, becoming "diode", causing an alarming extent of division with severe potential outcome. That makes the awareness of such issue more crucial.</p>
 				</div>
 				<div style="height:10vh"></div>
 			</div>
@@ -193,10 +244,10 @@
 			});
 			//left/right botton
 			$('#galleryLeft').click(function() {
-				$('#galleryScroll').animate({scrollTop: parseFloat($('#galleryScroll').scrollTop())-parseInt((w+h/5)/0.56/h)*0.56*h}, page_switch_time);
+				$('#galleryScroll').animate({scrollTop: parseInt((parseFloat($('#galleryScroll').scrollTop())-w+h/5)/(0.56*h))*0.56*h}, page_switch_time);
 			});
 			$('#galleryRight').click(function() {
-				$('#galleryScroll').animate({scrollTop: parseFloat($('#galleryScroll').scrollTop())+parseInt((w+h/5)/0.56/h)*0.56*h}, page_switch_time);
+				$('#galleryScroll').animate({scrollTop: parseInt((parseFloat($('#galleryScroll').scrollTop())+w-h/5)/(0.56*h))*0.56*h}, page_switch_time);
 			});
 			
 			//test part
@@ -501,8 +552,8 @@
 		}
 		
 		//debug
-		//pg = 5; position = objCopy(page_position[5])
-		//$('#web').fadeIn(0);$('#top').fadeOut(0);$('#bottom').fadeOut(0);
+		//pg = 4; position = objCopy(page_position[4])
+		//$('#gallery').fadeIn(0);$('#top').fadeOut(0);$('#bottom').fadeOut(0);
 		//debug end
 		
 		$('#hint0, #hint1').fadeOut(0);
