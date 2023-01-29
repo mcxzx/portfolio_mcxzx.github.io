@@ -28,7 +28,7 @@
 				<h2 style="color:#FFFFFF">Music & Other Stuff</h2>
 				<div class="scrollAble" style="width:40vw; height:75vh; position: absolute; bottom: 0; left:0; transform: translate(8vw,0vh); color: #FFFFFF">
 				<div class="withText">
-					<p>The music that is played with the translucent-red block at the bottom left corner of the screen is the Mozart's 20th Piano Concerto. It has total three movements and roughly 30 minutes of run time. At here, it starts from the second movement and loops through the piece.</p>
+					<p>The music that is played with the button at the bottom left corner of the screen is the Mozart's 20th Piano Concerto. It has total three movements and roughly 30 minutes of run time. At here, it starts from the second movement and loops through the piece.</p>
 					<p>This piano concerto is first of the only two piano concertos written in a minor key by the composer. The other one is his 24th piano concerto, which is very famous of its third movement having a contagious excitement. Ludwig van Beethoven had expressed his appreciation of this piece and had wrote a Cadenze for it.</p>
 					<p>This version was played by French pianist Robert Casadesus, George Szell(Conductor) with Cleveland Orchestra on 10 Novembre, 1956. The performer took an unusal approch to the middle part of the second movement using a more serious tempo, resulting in a more alertive feeling. The record has an appearant sense of age, which is equitable considering this is from more than 60 years ago. I also recommend the interpretations of Friedrich Gulda with Claudio Abbado, and the version with Maria João Pires, where they have taken a more gradual tempo.</p>
 				</div>
@@ -163,7 +163,8 @@
 		</div>
 		
 		<!Music Player>
-		<div id="player" style="position:fixed; bottom: 0; left: -72vh; height: 8vh; width: 80vh; z-index: 8; background-color: rgba(255,0,4,0.19)">
+		<div id="player" style="position:fixed; bottom: 0; left: 0vh; height: 8vh; width: 8vh; z-index: 8">
+			<canvas id="playicon" style="width:7vh; height:8vh; position: absolute; right:0;"></canvas>
 			<audio src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Mozart%3B_Concerto_No._20_in_D_Minor-_I._Allegro.ogg" preload="metadata" id="music0"></audio>
 			<audio src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Mozart%3B_Concerto_No._20_in_D_Minor-_II._Romanza.ogg" preload="metadata" id="music1"></audio>
 			<audio src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mozart%3B_Concerto_No._20_in_D_Minor-_III._Rondo-_Allegro_assai.ogg" preload="metadata" id="music2"></audio>
@@ -271,6 +272,7 @@
 					document.getElementById("music"+current_track).pause()
 					playing = false;
 				}
+				icon_t = speed/2;
 			});
 		});
 		//music track switch
@@ -448,6 +450,38 @@
 		page_position[0][3] = [linkgraphicpix([0,0]),linkgraphicpix([0,0.25]),linkgraphicpix([1,0.25]),linkgraphicpix([1,0])]
 		
 		position = objCopy(page_position[pg])
+		
+		//music play icon
+		const icon_canvas = document.getElementById("playicon");
+		const icon = icon_canvas.getContext("2d");
+		const icon_position = [
+			[//paused
+				[[0.25,0.25],[0.25,0.75],[0.6,0.575],[0.6,0.425]],
+				[[0.4,0.325],[0.4,0.675],[0.75,0.5],[0.75,0.5]]
+			],
+			[//playing
+				[[0.25,0.25],[0.25,0.75],[0.4,0.75],[0.4,0.25]],
+				[[0.6,0.25],[0.6,0.75],[0.75,0.75],[0.75,0.25]]
+			]
+		]
+		var play_icon_alpha = 0, icon_t = 0;
+		icon_canvas.width = icon_canvas.height;
+		function playicon(){
+			var i,j,ic = (playing?1:0);
+			icon.clearRect(0,0,icon_canvas.width,icon_canvas.height);
+			icon.fillStyle = "rgb("+play_icon_alpha+","+play_icon_alpha+","+play_icon_alpha+")"
+			for(i=0;i<2;i++){
+				icon.beginPath();
+				icon.moveTo(...add(icon_canvas.height*icon_t/speed*2,icon_position[1-ic][i][0],icon_canvas.height*(1-icon_t/speed*2),icon_position[ic][i][0]))
+				for(j=1;j<4;j++) icon.lineTo(...add(icon_canvas.height*(icon_t/speed*2),icon_position[1-ic][i][j],icon_canvas.height*(1-icon_t/speed*2),icon_position[ic][i][j]))
+				icon.fill();
+			}
+		}
+		function play_icon_alpha_ajust(){
+			play_icon_alpha = parseInt((255-ctx.getImageData(parseInt(h*0.04),parseInt(h*0.96),1,1).data[3]))
+		}
+		
+		//graphics
 		var grd;
 		
 		function reDraw(){
@@ -535,6 +569,8 @@
 				t -= 10/animation_duration
 				position = add(fade(t),initial_position, 1-fade(t),desired_position)
 				reDraw()
+				play_icon_alpha_ajust()
+				playicon()
 			}
 			if(page_switch_t > 0){
 				page_switch_t -= 10
@@ -545,6 +581,10 @@
 				}else if(pg*h - window.scrollY > scroll_deviation){
 					page_switch(pg-1)
 				}
+			}
+			if(icon_t > 0){
+				playicon();
+				icon_t -= 10;
 			}
 			if(pg == 4 && page_switch_t > 0){
 				
@@ -559,6 +599,8 @@
 		$('#hint0, #hint1').fadeOut(0);
 		globalresize();
 		animate_successor();
+		play_icon_alpha_ajust();
+		playicon();
 		
 	</script>
 </html>
