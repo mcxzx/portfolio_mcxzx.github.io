@@ -1,7 +1,10 @@
 # portfolio_mcxzx.github.io
 
+[https://mcxzx.github.io/portfolio_mcxzx.github.io/]
+
 This is my personal Media Art Portfolio created in Grade 12 over 5 consecutive ill-slept days. It features a coherent art style consists of three dynamical shapes, to me now has given a scent of modernistic deconstructionism flavor.
 
+# About me
 
 As suggested by a fellow friend: To whom might be interested in me, I've also uploaded my resume to this repository.
 
